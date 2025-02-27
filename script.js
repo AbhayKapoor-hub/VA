@@ -8,6 +8,9 @@ function speak(text) {
     text_speak.pitch = 1
     text_speak.volume = 1
     text_speak.lang = "hi-GB"
+    if (!window.speechSynthesis.getVoices().some(voice => voice.lang === "hi-GB")) {
+        text_speak.lang = "en-US"; 
+    }
     window.speechSynthesis.speak(text_speak)
 }
 
